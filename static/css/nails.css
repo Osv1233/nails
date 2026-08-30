@@ -410,3 +410,93 @@ html {
 .navbar a:hover {
   color: var(--accent-dark);
 }
+
+/* ==========================================
+   АДАПТАЦІЯ ДЛЯ ПЛАНШЕТІВ (до 768px)
+   ========================================== */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================
+   АДАПТАЦІЯ ДЛЯ ТЕЛЕФОНІВ (до 480px)
+   ========================================== */
+@media (max-width: 480px) {
+  .wrap {
+    padding: 0 16px;
+  }
+
+  /* Пункти меню тепер вужчий відступ, щоб влізли в один рядок */
+  .navbar .wrap {
+    gap: 14px;
+    padding: 12px 14px;
+  }
+
+  .navbar a {
+    font-size: 11px;
+  }
+
+  .hero {
+    padding: 40px 0 28px 0;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .hero p {
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  /* Кнопки на всю ширину і одна під одною, а не в рядок */
+  .btn {
+    display: block;
+    width: 100%;
+    margin: 6px 0;
+    box-sizing: border-box;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  /* Плюси залишаємо в 2 колонки, але зменшуємо відступи */
+  .perks {
+    gap: 10px;
+  }
+
+  .perk {
+    padding: 16px 10px;
+  }
+
+  /* Галерея на маленькому екрані — 2 колонки, а не 3 */
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .price-list {
+    padding: 14px 16px;
+  }
+
+  .price-row {
+    font-size: 13px;
+  }
+
+  .book-form {
+    max-width: 100%;
+    padding: 0 4px;
+  }
+
+  .footer-note {
+    font-size: 12px;
+    padding: 14px 16px;
+  }
+}
