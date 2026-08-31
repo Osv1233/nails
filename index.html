@@ -2,16 +2,13 @@
 <html lang="uk">
   <head>
     <meta charset="UTF-8" />
-    <!-- Цей тег — головна причина, чому сайт "з'їжджав" на телефоні -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description">
-    <title>Майстер манікюру — приклад лендингу</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Майстер манікюру — лендинговий сайт</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/css/nails.css">
-  </head>
-  <body>
+    <body>
     <nav class="navbar">
       <div class="wrap">
         <a href="#prices">Ціни</a>
@@ -28,19 +25,19 @@
           інструменти, акуратна робота, затишна атмосфера, є собачка та котик  🐕 🐈
         </p>
         <a
-          class="btn main"
-          href="https://www.instagram.com/ashka.nailss"
-          target="_blank"
-          rel="noopener"
-          >Записатись у Instagram</a
+        class="btn main"
+        href="https://www.instagram.com/ashka.nailss"
+        target="_blank"
+        rel="noopener"
+        >Записатись у Instagram</a
         >
         <a
-          class="btn ghost"
-          href="https://www.tiktok.com/@ashka.nailss?_r=1&_t=ZN-99I0OueegsQ"
-          target="_blank"
-          rel="noopener"
+        class="btn ghost"
+        href="https://www.tiktok.com/@ashka.nailss?_r=1&_t=ZN-99I0OueegsQ"
+        target="_blank"
+        rel="noopener"
         >
-          Мій Tiktok</a
+        Мій Tiktok</a
         >
         <div class="hero-photo">
           <h2 class="section-title">Моє манікюрне приміщення</h2>
@@ -48,7 +45,7 @@
         </div>
       </div>
     </div>
-
+    
     <div class="section">
       <div class="wrap">
         <h2 class="section-title">Чому обирають мене</h2>
@@ -56,8 +53,8 @@
           <div class="perk">
             <div class="em">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/>
-              <path d="M9 12l2 2 4-4"/>
+                <path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/>
+                <path d="M9 12l2 2 4-4"/>
               </svg>
             </div>
             <p>Стерилізація інструментів</p>
@@ -83,7 +80,7 @@
         </div>
       </div>
     </div>
-
+    
     <div class="section" id="gallery">
       <div class="wrap">
         <h2 class="section-title">Мої роботи</h2>
@@ -94,7 +91,34 @@
         </div>
       </div>
     </div>
-
+    
+    <div class="wrap" id="accordion">
+      <div class="item">
+        <div class="item__header">
+          Правила для клієнта
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </div>
+        <div class="item__body">
+          <h3>ПРАВИЛА:</h3>
+          <p> 
+            При записі
+            надсилайте бажаний дизайн,
+            надсилайте фото нігтиків.
+          </p>
+          
+          <p> 
+            Запис відбувається по передоплаті 100грн.
+          </p>
+          <p>
+            Обов'язково попереджайте про запізнення,
+            скасовуйте/переносьте запис завчасно (не пізніше 2год)
+          </p>
+        </div>
+      </div>
+    </div>
+    
     <div class="section" id="prices">
       <div class="wrap">
         <h2 class="section-title">Ціни</h2>
@@ -128,11 +152,12 @@
     </div>
     <div class="book" id="book">
       <div class="wrap">
+        <p> <h3>Локація:</h3>Львів 6 хв від Оперного Театру</p>
         <h2>Записатись на манікюр</h2>
         <form
-          class="book-form"
-          action="https://formsubmit.co/pantiksasha@gmail.com"
-          method="POST"
+        class="book-form"
+        action="https://formsubmit.co/pantiksasha@gmail.com"
+        method="POST"
         >
           <!-- Ці два приховані поля налаштовують сам сервіс FormSubmit -->
           <input
@@ -178,5 +203,31 @@
     <div class="footer-note">
       Шостак Анастасія · манікюр у м. Львів · лендинг сайт - OP websitemaker
     </div>
+
+    <script>
+      const items = document.querySelectorAll('#accordion .item');
+    
+      items.forEach(item => {
+        const header = item.querySelector('.item__header');
+        const body = item.querySelector('.item__body');
+    
+        header.addEventListener('click', () => {
+          const isOpen = item.classList.contains('open');
+    
+          // закриваємо всі пункти
+          items.forEach(other => {
+            other.classList.remove('open');
+            other.querySelector('.item__body').style.maxHeight = null;
+          });
+    
+          // якщо клікнутий пункт був закритий — відкриваємо його
+          if (!isOpen) {
+            item.classList.add('open');
+            body.style.maxHeight = body.scrollHeight + 'px';
+          }
+        });
+      });
+    </script>
+
   </body>
 </html>
